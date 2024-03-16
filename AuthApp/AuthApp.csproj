@@ -11,7 +11,6 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Pages\" />
-    <Folder Include="Views\Window\" />
   </ItemGroup>
 
 </Project>
