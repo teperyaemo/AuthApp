@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AuthApp.Domain.Models
 {
-    public class User
+    public class User : DomainObject
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }

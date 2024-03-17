@@ -9,18 +9,12 @@ using Microsoft.EntityFrameworkCore;
         {
             public DbSet<User> Users { get; set; }
 
+            public AuthAppDbContext(DbContextOptions options) : base(options) { }
+            
             protected override void OnModelCreating(ModelBuilder builder)
             {
                 builder.ApplyConfiguration(new UserConfigurations());
                 base.OnModelCreating(builder);
-            }
-
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            {
-                    optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AuthAppDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False", 
-                        b=> b.MigrationsAssembly("AuthApp.Persistance"));
-
-                    base.OnConfiguring(optionsBuilder);
             }
         }
     }
