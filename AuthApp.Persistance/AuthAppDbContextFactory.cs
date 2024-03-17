@@ -21,9 +21,6 @@ namespace AuthApp.Persistance
         {
             DbContextOptionsBuilder<AuthAppDbContext> options = new DbContextOptionsBuilder<AuthAppDbContext>();
 
-            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AuthAppDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False",
-                        b => b.MigrationsAssembly("AuthApp.Persistance"));
-
             _configureDbContext(options);
 
             return new AuthAppDbContext(options.Options);

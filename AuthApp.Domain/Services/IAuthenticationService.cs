@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AuthApp.Domain.Models;
 
 namespace AuthApp.Domain.Services
 {
@@ -10,12 +6,11 @@ namespace AuthApp.Domain.Services
     {
         Success,
         PasswordsDoNotMatch,
-        EmailAlreadyExists,
-        UsernameAlreadyExists
+        EmailAlreadyExists
     }
     public interface IAuthenticationService
     {
-        Task<bool> Registration(string FirstName, string LastaName, DateTime dateBirth,string email, string password, string confirmPassword);
-        Task<bool> Login(string email, string password);
+        Task<RegistrationResult> Register(string firstName, string lastaName,string email, string password, string confirmPassword);
+        Task<User> Login(string email, string password);
     }
 }
